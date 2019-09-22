@@ -17,44 +17,49 @@ import datetime
 
 from flask import Flask, render_template #, request
 #from google.auth.transport import requests
-#from google.cloud import datastore
+from google.cloud import datastore
 #import google.oauth2.id_token
 
 #firebase_request_adapter = requests.Request()
 
-#datastore_client = datastore.Client()
+datastore_client = datastore.Client()
 
 app = Flask(__name__)
 
 
-#def store_time(dt):
-#    entity = datastore.Entity(key=datastore_client.key('visit'))
-#    entity.update({
-#        'timestamp': dt
-#    })
-#
-#    datastore_client.put(entity)
+def store_time(dt):
+    entity = datastore.Entity(key=datastore_client.key('visit'))
+    entity.update({
+        'timestamp': dt
+    })
+
+    datastore_client.put(entity)
 
 
-#def fetch_times(limit):
-#    query = datastore_client.query(kind='visit')
-#    query.order = ['-timestamp']
-#
-#    times = query.fetch(limit=limit)
-#
-#    return times
+def fetch_times(limit):
+    query = datastore_client.query(kind='visit')
+    query.order = ['-timestamp']
+
+    times = query.fetch(limit=limit)
+
+    return times
 
 
 @app.route('/')
 def root():
     # For the sake of example, use static information to inflate the template.
     # This will be replaced with real information in later steps.
-    dummy_times = [datetime.datetime(2018, 1, 1, 10, 0, 0),
-                   datetime.datetime(2018, 1, 2, 10, 30, 0),
-                   datetime.datetime(2018, 1, 3, 11, 0, 0),
-                   ]
+    #dummy_times = [datetime.datetime(2018, 1, 1, 10, 0, 0),
+    #               datetime.datetime(2018, 1, 2, 10, 30, 0),
+    #               datetime.datetime(2018, 1, 3, 11, 0, 0),
+    #               ]
 
-    return render_template('index.html', times=dummy_times)
+    store_time(datetime.datetime.now())
+
+    # fetch the most recent 10 access times from Datastore
+    times = fetch_times(10)
+
+    return render_template('index.html', times=times)
 
 
     # Verify Firebase auth
