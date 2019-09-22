@@ -10,7 +10,7 @@
 <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#config-web-app -->
 
-
+<!--
     <script>
       // Your web app's Firebase configuration
       var firebaseConfig = {
@@ -34,10 +34,11 @@
     alert(msg);
   }
 </script>
-
+-->
+<!--
   <script src="https://cdn.firebase.com/libs/firebaseui/2.6.2/firebaseui.js"></script>
   <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.6.2/firebaseui.css">
-
+-->
   <script src="{{ url_for('static', filename='script.js') }}"></script>
   <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 
@@ -45,11 +46,10 @@
 <body>
 
   <h1>Datastore and Firebase Auth Example</h1>
-  <h2>Hello</h2>
-  <div id="firebaseui-auth-container"></div>
+  
+  <!--<div id="firebaseui-auth-container"></div>
 
   <button id="sign-out" hidden=true>Sign Out</button>
-  
   <div id="login-info" hidden=true>
     <h2>Login info:</h2>
     {% if user_data %}
@@ -65,7 +65,12 @@
       <p>Error: {{ error_message }}</p>
     {% endif %}
   </div>
+-->
 
+  <h2>Last 10 visits</h2>
+  {% for time in times %}
+    <p>{{ time }}</p>
+  {% endfor %}
 
   
 

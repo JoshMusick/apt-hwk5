@@ -13,11 +13,14 @@
  * limitations under the License.
  */
  
-// [START gae_python37_log]
 'use strict';
 
 
 window.addEventListener('load', function () {
+  this.console.log("Hello World")
+
+});
+/*
   document.getElementById('sign-out').onclick = function () {
     firebase.auth().signOut();
   };
@@ -74,3 +77,4 @@ window.addEventListener('load', function () {
 
 
 // [END gae_python37_log]
+*/
