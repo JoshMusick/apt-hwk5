@@ -3,56 +3,58 @@
 <head>
   <title>Datastore and Firebase Auth Example</title>
   
-  
-<!-- The core Firebase JS SDK is always required and must be listed first -->
-<!--<script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-app.js"></script>-->
-
 <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#config-web-app -->
 
-<!--
-    <script>
-      // Your web app's Firebase configuration
-      var firebaseConfig = {
-        apiKey: "AIzaSyBDXGjDulyqKE0pKlQbizdBrRo8c0AX2wM",
-        authDomain: "apt-assignment-5.firebaseapp.com",
-        databaseURL: "https://apt-assignment-5.firebaseio.com",
-        projectId: "apt-assignment-5",
-        storageBucket: "apt-assignment-5.appspot.com",
-        messagingSenderId: "858636588125",
-        appId: "1:858636588125:web:f2940695f7e0cde605a9b4"
-     };
-     // Initialize Firebase
-     firebase.initializeApp(firebaseConfig);
-      
-  </script>
 
-<script>
-  if (typeof firebase === 'undefined') {
-    const msg = "Please paste the Firebase initialization snippet into index.html. See https://console.firebase.google.com > Overview > Add Firebase to your web app.";
-    console.log(msg);
-    alert(msg);
-  }
-</script>
--->
-<!--
-  <script src="https://cdn.firebase.com/libs/firebaseui/2.6.2/firebaseui.js"></script>
-  <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.6.2/firebaseui.css">
--->
-  <script src="{{ url_for('static', filename='script.js') }}"></script>
-  <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<!--<script src="https://www.gstatic.com/firebasejs/6.6.2/firebase-app.js"></script>-->
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+<script src="https://cdn.firebase.com/libs/firebaseui/2.6.2/firebaseui.js"></script>
+<link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.6.2/firebaseui.css">
+   
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 
 </head>
 <body>
 
+  <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+  <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/6.6.2/firebase-app.js"></script>
+
+  <!-- Add Firebase products that you want to use -->
+  <script src="https://www.gstatic.com/firebasejs/6.6.2/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.6.2/firebase-firestore.js"></script>
+
+
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyBIeU0m9KIGcxeETbzI_SjntuIcfU9rM8I",
+      authDomain: "apthwk5.firebaseapp.com",
+      databaseURL: "https://apthwk5.firebaseio.com",
+      projectId: "apthwk5",
+      storageBucket: "apthwk5.appspot.com",
+      messagingSenderId: "923398600719",
+      appId: "1:923398600719:web:11e30c986fe54fcbadcb7a"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+  </script>
+
+
   <h1>Datastore and Firebase Auth Example</h1>
+
+  <div id="firebaseui-auth-container"></div>
   
-
-
-
-  <!--<div id="firebaseui-auth-container"></div>
-
   <button id="sign-out" hidden=true>Sign Out</button>
+  
   <div id="login-info" hidden=true>
     <h2>Login info:</h2>
     {% if user_data %}
@@ -68,16 +70,9 @@
       <p>Error: {{ error_message }}</p>
     {% endif %}
   </div>
--->
 
-  <h2>Last 10 visits</h2>
-  {% for time in times %}
-    <p>{{ time['timestamp'] }}</p>
-  {% endfor %}
+
 
   
-
-
-
 </body>
 </html>
