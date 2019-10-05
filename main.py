@@ -53,6 +53,7 @@ def root():
     error_message = None
     claims = None
     times = None
+    numRecords = 0
 
     if id_token:
         try:

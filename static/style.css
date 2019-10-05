@@ -2,3 +2,75 @@ body {
   font-family: "helvetica", sans-serif;
   text-align: center;
 }
+
+#sign-out {
+  float: right;
+  padding: 10px;
+  width: 200px;
+}
+
+.container {
+  background-color: lightgray;
+  width: 500px;
+  margin: auto;
+}
+
+h2 {
+  width: 500px;
+  margin: auto;
+}
+
+.user {
+  width: 250px;
+  margin: auto;
+}
+
+.user .name dd {
+  display: inline-block;
+}
+
+.time {
+  border: 1px solid red;
+  margin: 5px;
+  padding: 15px;
+}
+
+
+.container dl {
+  width: 100%;
+  overflow: hidden;
+  padding: 20px;
+}
+.user dt {
+  float: left;
+  width: 20%;
+  /* adjust the width; make sure the total of both is 100% */
+  padding: 0px;
+  margin: 0;
+}
+.user dd {
+  float: left;
+  width: 80%;
+  /* adjust the width; make sure the total of both is 100% */
+  padding: 0;
+  margin: 0;
+}
+
+.times dt {
+  width: 100%;
+}
+
+.times dd {
+  float: left;
+  width: 100%;
+  /* adjust the width; make sure the total of both is 100% */
+  padding: 0;
+  margin: auto;
+}
+
+.times {
+  clear: both;
+  width: 300px;
+  margin: auto;
+}
+
